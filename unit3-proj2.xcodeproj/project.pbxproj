@@ -14,6 +14,9 @@
 		1D4E3AA92329918E00196B82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4E3AA72329918E00196B82 /* LaunchScreen.storyboard */; };
 		1D4E3AB42329918E00196B82 /* unit3_proj2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E3AB32329918E00196B82 /* unit3_proj2Tests.swift */; };
 		1D4E3ABF2329918E00196B82 /* unit3_proj2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E3ABE2329918E00196B82 /* unit3_proj2UITests.swift */; };
+		1D4E3ACD23299A9C00196B82 /* ShowsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E3ACC23299A9C00196B82 /* ShowsAPIClient.swift */; };
+		1D4E3AD223299BAB00196B82 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E3AD123299BAB00196B82 /* NetworkManager.swift */; };
+		1D4E3AD42329C09D00196B82 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E3AD32329C09D00196B82 /* ErrorHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		1D4E3ABA2329918E00196B82 /* unit3-proj2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "unit3-proj2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4E3ABE2329918E00196B82 /* unit3_proj2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unit3_proj2UITests.swift; sourceTree = "<group>"; };
 		1D4E3AC02329918E00196B82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D4E3ACC23299A9C00196B82 /* ShowsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIClient.swift; sourceTree = "<group>"; };
+		1D4E3AD123299BAB00196B82 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1D4E3AD32329C09D00196B82 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,11 @@
 		1D4E3A9D2329918A00196B82 /* unit3-proj2 */ = {
 			isa = PBXGroup;
 			children = (
-				1D4E3A9E2329918A00196B82 /* AppDelegate.swift */,
-				1D4E3AA02329918A00196B82 /* ViewController.swift */,
-				1D4E3AA22329918A00196B82 /* Main.storyboard */,
-				1D4E3AA52329918E00196B82 /* Assets.xcassets */,
-				1D4E3AA72329918E00196B82 /* LaunchScreen.storyboard */,
 				1D4E3AAA2329918E00196B82 /* Info.plist */,
+				1D4E3AA22329918A00196B82 /* Main.storyboard */,
+				1D4E3AD023299ADA00196B82 /* Supporting Files */,
+				1D4E3ACE23299AA300196B82 /* Models */,
+				1D4E3ACF23299AB600196B82 /* View Controllers */,
 			);
 			path = "unit3-proj2";
 			sourceTree = "<group>";
@@ -123,6 +128,34 @@
 				1D4E3AC02329918E00196B82 /* Info.plist */,
 			);
 			path = "unit3-proj2UITests";
+			sourceTree = "<group>";
+		};
+		1D4E3ACE23299AA300196B82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D4E3ACC23299A9C00196B82 /* ShowsAPIClient.swift */,
+				1D4E3AD123299BAB00196B82 /* NetworkManager.swift */,
+				1D4E3AD32329C09D00196B82 /* ErrorHandling.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D4E3ACF23299AB600196B82 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D4E3AA02329918A00196B82 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1D4E3AD023299ADA00196B82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D4E3A9E2329918A00196B82 /* AppDelegate.swift */,
+				1D4E3AA72329918E00196B82 /* LaunchScreen.storyboard */,
+				1D4E3AA52329918E00196B82 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D4E3AD223299BAB00196B82 /* NetworkManager.swift in Sources */,
+				1D4E3ACD23299A9C00196B82 /* ShowsAPIClient.swift in Sources */,
+				1D4E3AD42329C09D00196B82 /* ErrorHandling.swift in Sources */,
 				1D4E3AA12329918A00196B82 /* ViewController.swift in Sources */,
 				1D4E3A9F2329918A00196B82 /* AppDelegate.swift in Sources */,
 			);
