@@ -9,5 +9,18 @@
 import Foundation
 
 struct Shows: Codable {
+    let score: Double?
+    let show: ShowWRapper
+}
+
+struct ShowWRapper: Codable {
+    let name: String
+    let rating: Int
+    let image: ImageWrapper
+    let summary: String
     
+}
+
+struct ImageWrapper: Codable {
+    let medium: String
 }

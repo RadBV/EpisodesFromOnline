@@ -10,6 +10,7 @@ import UIKit
 
 class ShowsTableViewCell: UITableViewCell {
     
+    
     @IBOutlet weak var showTitleLabel: UILabel!
     @IBOutlet weak var showImage: UIImageView!
     
