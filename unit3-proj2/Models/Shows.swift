@@ -18,6 +18,7 @@ struct ShowWRapper: Codable {
     let rating: Int
     let image: ImageWrapper
     let summary: String
+    let id: Int
     
 }
 

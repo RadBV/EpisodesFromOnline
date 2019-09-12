@@ -12,19 +12,15 @@ class EpisodesAPIClient {
     private init() {}
     static let shared = EpisodesAPIClient()
     
-    func getShows(userInput: String?, completionHandler: @escaping (Result<[Shows],ErrorHandling>) -> Void ) {
-        var urlStr = ""
-        if let word = userInput {
-            let searchString = word.replacingOccurrences(of: " ", with: "-")
-            urlStr = "https://api.tvmaze.com/search/shows?q=\(searchString)"
-        }
+    func getEpisodes(id: Int, completionHandler: @escaping (Result<[Episodes],ErrorHandling>) -> Void ) {
+        let urlStr = "http://api.tvmaze.com/shows/\(id)/episodes"
         NetworkManager.shared.fetchData(urlStr: urlStr) { (result) in
             switch result {
             case .failure(let appError):
                 completionHandler(.failure(appError))
             case .success(let data):
                 do {
-                    let EpisodeData = try JSONDecoder().decode([Shows].self, from: data)
+                    let EpisodeData = try JSONDecoder().decode([Episodes].self, from: data)
                     completionHandler(.success(EpisodeData))
                 } catch {
                     completionHandler(.failure(ErrorHandling.decodingError))
