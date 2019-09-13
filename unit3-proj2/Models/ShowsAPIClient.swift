@@ -15,19 +15,20 @@ class ShowsAPIClient {
     func getShows(userInput: String?, completionHandler: @escaping (Result<[Shows],ErrorHandling>) -> Void ) {
         var urlStr = ""
         if let word = userInput {
-            let searchString = word.replacingOccurrences(of: " ", with: "-")
-            urlStr = "https://api.tvmaze.com/search/shows?q=\(searchString)"
-        }
-        NetworkManager.shared.fetchData(urlStr: urlStr) { (result) in
-            switch result {
-            case .failure(let appError):
-                completionHandler(.failure(appError))
-            case .success(let data):
-                do {
-                    let showData = try JSONDecoder().decode([Shows].self, from: data)
-                    completionHandler(.success(showData))
-                } catch {
-                    completionHandler(.failure(ErrorHandling.decodingError))
+            urlStr = "http://api.tvmaze.com/search/shows?q=\(word)"
+        
+            NetworkManager.shared.fetchData(urlStr: urlStr) { (result) in
+                switch result {
+                case .failure(let appError):
+                    completionHandler(.failure(appError))
+                case .success(let data):
+                    do {
+                        let showData = try JSONDecoder().decode([Shows].self, from: data)
+                        completionHandler(.success(showData))
+                    } catch {
+                        completionHandler(.failure(ErrorHandling.decodingError))
+                        print(error)
+                    }
                 }
             }
         }

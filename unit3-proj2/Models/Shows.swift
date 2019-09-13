@@ -9,13 +9,12 @@
 import Foundation
 
 struct Shows: Codable {
-    let score: Double?
     let show: ShowWRapper
 }
 
 struct ShowWRapper: Codable {
     let name: String
-    let rating: Int
+    let rating: Double?
     let image: ImageWrapper
     let summary: String
     let id: Int
@@ -23,5 +22,5 @@ struct ShowWRapper: Codable {
 }
 
 struct ImageWrapper: Codable {
-    let medium: String
+    let medium: String?
 }

@@ -60,8 +60,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="showImage" destination="iNj-iI-2dd" id="Zfx-Sw-e2N"/>
-                                            <outlet property="showTitleLabel" destination="Qny-uW-de3" id="gv7-42-HA3"/>
+                                            <outlet property="showImage" destination="iNj-iI-2dd" id="Alj-Mu-vo8"/>
+                                            <outlet property="showTitleLabel" destination="Qny-uW-de3" id="zNk-HP-91N"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
