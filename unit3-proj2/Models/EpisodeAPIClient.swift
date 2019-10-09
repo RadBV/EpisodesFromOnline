@@ -13,7 +13,9 @@ class EpisodesAPIClient {
     static let shared = EpisodesAPIClient()
     
     func getEpisodes(id: Int, completionHandler: @escaping (Result<[Episodes],ErrorHandling>) -> Void ) {
+        
         let urlStr = "http://api.tvmaze.com/shows/\(id)/episodes"
+        
         NetworkManager.shared.fetchData(urlStr: urlStr) { (result) in
             switch result {
             case .failure(let appError):

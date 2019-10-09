@@ -25,9 +25,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var showsSearchBar: UISearchBar!
     @IBOutlet weak var showsTableView: UITableView!
+
     
     
-    func loadData() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showsTableView.dataSource = self
+        showsSearchBar.delegate = self
+        loadData()
+        // Do any additional setup after loading the view.
+    }
+
+    private func loadData() {
         ShowsAPIClient.shared.getShows(userInput: searchedText) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -40,17 +49,8 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        showsTableView.dataSource = self
-        showsSearchBar.delegate = self
-        loadData()
-        // Do any additional setup after loading the view.
-    }
-
 }
+
 
 extension ViewController: UITableViewDataSource {
     
@@ -61,8 +61,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let show = showsArr[indexPath.row]
         if let cell = showsTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? ShowsTableViewCell {
-            cell.showTitleLabel.text = show.show.name
-            if let imageUnwrapped = show.show.image.medium {
+            cell.showTitleLabel.text = show.name
+            if let imageUnwrapped = show.image?.medium {
             cell.showImage.image = UIImage(named: imageUnwrapped)
             } else {
                 cell.showImage.image = UIImage(contentsOfFile: "noimage")
@@ -77,9 +77,9 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         searchedText = searchText
-        
+        print(searchText)
+        loadData()
     }
 
 }

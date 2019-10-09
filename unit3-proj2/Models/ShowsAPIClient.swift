@@ -13,9 +13,17 @@ class ShowsAPIClient {
     static let shared = ShowsAPIClient()
     
     func getShows(userInput: String?, completionHandler: @escaping (Result<[Shows],ErrorHandling>) -> Void ) {
-        var urlStr = ""
-        if let word = userInput {
-            urlStr = "http://api.tvmaze.com/search/shows?q=\(word)"
+        
+        var urlStr: String {
+            
+            guard let word = userInput else {
+                return "http://api.tvmaze.com/search/shows?q=girls"
+            }
+            guard word != "" else {
+                return "http://api.tvmaze.com/search/shows?q=girls"
+            }
+            return "http://api.tvmaze.com/search/shows?q=\(word)"
+        }
         
             NetworkManager.shared.fetchData(urlStr: urlStr) { (result) in
                 switch result {
@@ -23,7 +31,10 @@ class ShowsAPIClient {
                     completionHandler(.failure(appError))
                 case .success(let data):
                     do {
-                        let showData = try JSONDecoder().decode([Shows].self, from: data)
+                        let showWrapperData = try JSONDecoder().decode([ShowWrapper].self, from: data)
+                        let showData = showWrapperData.map { (ShowWrapper) -> Shows in
+                            return ShowWrapper.show
+                        }
                         completionHandler(.success(showData))
                     } catch {
                         completionHandler(.failure(ErrorHandling.decodingError))
@@ -32,6 +43,5 @@ class ShowsAPIClient {
                 }
             }
         }
-    }
 }
 

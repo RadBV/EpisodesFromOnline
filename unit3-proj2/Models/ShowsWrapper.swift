@@ -8,19 +8,22 @@
 
 import Foundation
 
-struct Shows: Codable {
-    let show: ShowWRapper
+struct ShowWrapper: Codable {
+    let show: Shows    
 }
 
-struct ShowWRapper: Codable {
+struct Shows: Codable {
     let name: String
-    let rating: Double?
-    let image: ImageWrapper
+    let rating: RatingWrapper?
+    let image: ImageWrapper?
     let summary: String
     let id: Int
     
 }
 
+struct RatingWrapper: Codable {
+    let average: Double?
+}
 struct ImageWrapper: Codable {
     let medium: String?
 }
