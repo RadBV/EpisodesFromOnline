@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         showsTableView.delegate = self
         showsSearchBar.delegate = self
         loadData()
-        // Do any additional setup after loading the view.
     }
 
     private func loadData() {
