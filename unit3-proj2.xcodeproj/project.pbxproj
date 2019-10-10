@@ -23,6 +23,8 @@
 		1DD4E67A234E7B630012CB9A /* sampleShows.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD4E679234E7B620012CB9A /* sampleShows.json */; };
 		1DD4E67B234E84E00012CB9A /* unit3_proj2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4E3AB32329918E00196B82 /* unit3_proj2Tests.swift */; };
 		1DD4E681234EAC820012CB9A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD4E680234EAC820012CB9A /* ImageHelper.swift */; };
+		1DD4E683234EB5030012CB9A /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD4E682234EB5030012CB9A /* EpisodesTableViewController.swift */; };
+		1DD4E685234F7FB10012CB9A /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD4E684234F7FB10012CB9A /* EpisodesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		1D58BEFD232AEABB00878AB8 /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
 		1DD4E679234E7B620012CB9A /* sampleShows.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sampleShows.json; path = "unit3-proj2/sampleShows.json"; sourceTree = SOURCE_ROOT; };
 		1DD4E680234EAC820012CB9A /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		1DD4E682234EB5030012CB9A /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
+		1DD4E684234F7FB10012CB9A /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				1D4E3AA02329918A00196B82 /* ViewController.swift */,
+				1DD4E682234EB5030012CB9A /* EpisodesTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1D58BEF3232AD6B900878AB8 /* ShowsTableViewCell.swift */,
+				1DD4E684234F7FB10012CB9A /* EpisodesTableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -325,10 +331,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D4E3AD223299BAB00196B82 /* NetworkManager.swift in Sources */,
+				1DD4E685234F7FB10012CB9A /* EpisodesTableViewCell.swift in Sources */,
 				1DD4E681234EAC820012CB9A /* ImageHelper.swift in Sources */,
 				1D4E3ACD23299A9C00196B82 /* ShowsAPIClient.swift in Sources */,
 				1D4E3AD42329C09D00196B82 /* ErrorHandling.swift in Sources */,
 				1D58BEFE232AEABB00878AB8 /* Episodes.swift in Sources */,
+				1DD4E683234EB5030012CB9A /* EpisodesTableViewController.swift in Sources */,
 				1D58BEFA232AE47900878AB8 /* EpisodeAPIClient.swift in Sources */,
 				1D4E3AA12329918A00196B82 /* ViewController.swift in Sources */,
 				1D58BEF4232AD6B900878AB8 /* ShowsTableViewCell.swift in Sources */,
