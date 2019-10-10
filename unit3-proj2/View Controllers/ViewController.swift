@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showsTableView.dataSource = self
+        showsTableView.delegate = self
         showsSearchBar.delegate = self
         loadData()
         // Do any additional setup after loading the view.
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return showsArr.count
@@ -62,8 +63,18 @@ extension ViewController: UITableViewDataSource {
         let show = showsArr[indexPath.row]
         if let cell = showsTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? ShowsTableViewCell {
             cell.showTitleLabel.text = show.name
+            
             if let imageUnwrapped = show.image?.medium {
-            cell.showImage.image = UIImage(named: imageUnwrapped)
+                ImageHelper.shared.getImage(urlStr: imageUnwrapped) { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .failure(let error):
+                            print(error)
+                        case .success(let imageFromOnline):
+                            cell.showImage.image = imageFromOnline
+                        }
+                    }
+                }
             } else {
                 cell.showImage.image = UIImage(contentsOfFile: "noimage")
             }
@@ -72,6 +83,9 @@ extension ViewController: UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
     
 }
 
