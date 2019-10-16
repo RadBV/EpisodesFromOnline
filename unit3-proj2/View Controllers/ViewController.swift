@@ -36,6 +36,13 @@ class ViewController: UIViewController {
         loadData()
     }
 
+    private func getEpisodeID() -> Int {
+//        guard let indexPath = showsTableView.indexPathForSelectedRow.row else {
+//
+//        }
+        let episodeID = showsArr[showsTableView.indexPathForSelectedRow!.row].id
+        return episodeID
+    }
     private func loadData() {
         ShowsAPIClient.shared.getShows(userInput: searchedText) { (result) in
             DispatchQueue.main.async {
@@ -45,6 +52,23 @@ class ViewController: UIViewController {
                 case .success(let showsFromOnlineAPI):
                     self.showsArr = showsFromOnlineAPI
                     dump(self.showsArr)
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let episodeVC = segue.destination as? EpisodesTableViewController else {
+            fatalError()
+        }
+        
+        EpisodesAPIClient.shared.getEpisodes(id: getEpisodeID()) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let episodes):
+                    episodeVC.episodes = episodes
+                case .failure(let error):
+                    print(error)
                 }
             }
         }

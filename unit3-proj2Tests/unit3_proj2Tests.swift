@@ -17,7 +17,7 @@ class unit3_proj2Tests: XCTestCase {
     }
     
     func testEpisodes() {
-        
+        let episodes = Episodes.getSampleEpisodes()
+        XCTAssert(episodes.count > 0, "we got episodes: \(episodes.count)")
     }
-    
 }

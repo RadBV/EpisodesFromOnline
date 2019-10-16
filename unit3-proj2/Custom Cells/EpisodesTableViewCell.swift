@@ -20,8 +20,24 @@ class EpisodesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
+    
+    func setUpCell(episodes: Episodes) {
+        seasonLabel.text = episodes.season.description
+        episodeName.text = episodes.name
+        if let image = episodes.image?.medium {
+            ImageHelper.shared.getImage(urlStr: image) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let imageFromOnline):
+                        self.episodeImage.image = imageFromOnline
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+        } else {
+            episodeImage.image = UIImage(named: "noimage")
+        }
+    }
 }
