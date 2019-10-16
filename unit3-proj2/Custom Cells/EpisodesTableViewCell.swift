@@ -23,7 +23,7 @@ class EpisodesTableViewCell: UITableViewCell {
     }
     
     func setUpCell(episodes: Episodes) {
-        seasonLabel.text = episodes.season.description
+        seasonLabel.text = "S: \(episodes.season), Ep: \(episodes.number)"
         episodeName.text = episodes.name
         if let image = episodes.image?.medium {
             ImageHelper.shared.getImage(urlStr: image) { (result) in
