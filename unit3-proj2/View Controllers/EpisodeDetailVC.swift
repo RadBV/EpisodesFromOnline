@@ -16,25 +16,36 @@ class EpisodeDetailVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var episodeLabel: UILabel!
+    @IBOutlet weak var summary: UITextView!
     
     //MARK: -- Properties
+    var episode: Episodes!
     
     //MARK: -- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpView()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpView() {
+        nameLabel.text = episode.name
+        seasonLabel.text = "Season: \(episode.season)"
+        episodeLabel.text = "Ep: \(episode.number)"
+        summary.text = episode.fixedSummary
+        if let image = self.episode.image?.original {
+                ImageHelper.shared.getImage(urlStr: image) { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let imageFromOnline):
+                            self.imageLabel.image = imageFromOnline
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                }
+        } else {
+            imageLabel.image = #imageLiteral(resourceName: "placeholder")
+        }
     }
-    */
-
 }

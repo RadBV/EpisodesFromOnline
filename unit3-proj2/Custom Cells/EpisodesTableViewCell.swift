@@ -37,7 +37,7 @@ class EpisodesTableViewCell: UITableViewCell {
                 }
             }
         } else {
-            episodeImage.image = UIImage(named: "noimage")
+            episodeImage.image = #imageLiteral(resourceName: "placeholder")
         }
     }
 }
